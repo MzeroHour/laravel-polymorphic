@@ -4,6 +4,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Models\Comment;
+use App\Models\Tag;
 use App\Models\Video;
 
 /*
@@ -51,6 +52,31 @@ Route::get('/', function () {
 
 
     return view('welcome');
+});
+
+
+Route::get('/tags', function(){
+    $post = Post::first();
+    $video = Video::first();
+    $tag = Tag::find(1);
+
+    // ----- create data in Tag Table and Polymorphic Pivot Table
+    // $post->tags()->create([
+    //     'name'=>'ReactJs',
+    // ]);
+
+     // ----- create data in Polymorphic Pivot Table with Post Model
+     //$post->tags()->attach([2]);
+    //  return($video->tags);
+
+      // ----- create data in Polymorphic Pivot Table with Video Model
+    //  $video->tags()->attach([1]);
+    //  return($video->tags);
+
+    //return($tag->videos);
+    return($tag->posts);
+
+
 });
 
 Route::get('/dashboard', function () {

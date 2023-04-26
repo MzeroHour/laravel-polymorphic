@@ -17,12 +17,17 @@ class Post extends Model
         ]);
     }
 
-    //Polymorphic Many to One Relation
+    //Polymorphic One to Many Relation
     public function comments(){
         return $this->morphMany(Comment::class, 'commentable');
     }
     //Polymorphic One to One Relation
     public function comment(){
         return $this->morphOne(Comment::class, 'commentable');
+    }
+
+    //Polymorphic Many to Many
+    public function tags(){
+        return $this->morphToMany(Tag::class, 'taggable', 'taggables');
     }
 }

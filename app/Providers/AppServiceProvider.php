@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        //Polymoriphic able type change model name path
+        // Relation::morphMap([
+        //     'Post' => \App\Models\Post::class,
+        //     'Video' => \App\Models\Post::class,
+        // ]);
     }
 }
