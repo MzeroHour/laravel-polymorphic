@@ -38,9 +38,16 @@ Route::get('/', function () {
     //         'body' => 'comment for Video',
     //     ]);
 
-    $comment = Comment::first();
-    dd($comment->subject);
+    // $comment = Comment::first();
+    // dd($comment->subject);
 
+
+    $post = Post::find(1);
+    // ---- One to one PolymorPhic
+    //return($post->comments);
+
+    // ---- One to Many PolymorPhic
+    return($post->comments);
 
 
     return view('welcome');
